@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+T=$(dirname $0)
+if [ ${T:0:1} != "/" ]; then 
+   T=$PWD/$T
+fi
+
+mkdir -p ~/.local/share/libgedit-gtksourceview-300/language-specs >& /dev/null
+cp $T/glsl330.lang ~/.local/share/libgedit-gtksourceview-300/language-specs/ 
+ls ~/.local/share/libgedit-gtksourceview-300/language-specs/ 
+
+# mkdir -p ~/.config/gedit/snippets/ >& /dev/null
+# cp $T/glsl.xml ~/.config/gedit/snippets/glsl.xml
+# ls ~/.config/gedit/snippets/
+echo
+# echo Activa el plugin a gedit--Preferences--Plugins--Snippets
+echo Pots trobar la llista actualitzada de uniforms del viewer a ~/assig/pr_grau-g/uniforms.txt
+

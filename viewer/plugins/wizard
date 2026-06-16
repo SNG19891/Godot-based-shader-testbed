@@ -1,0 +1,58 @@
+#!/bin/bash
+# Check arguments
+if [ $# != 2 ]; then
+    echo "Usage: wizard <sourceFolder> <targetClass>"  
+    echo 
+    echo "Examples:"
+    echo "    wizard effect-crt MyPlugin"
+    echo "    wizard show-help MyHelpPlugin"
+    exit -1
+fi
+sourceFolder=$1
+targetClass=$2
+# Check sourceFolder does exists
+if [ -d $sourceFolder ]; then
+	echo " Source folder: " $sourceFolder 
+else 
+	echo " Error: source folder does not exists: " $sourceFolder 
+    echo " Exiting..."
+    exit -1
+fi 
+# Class & Folder names
+sourceClass=$(cat $sourceFolder/*.h | grep -o "class.*:.*BasicPlugin" | cut -d " " -f 2)
+targetFolder=$(echo $targetClass | tr '[:upper:]' '[:lower:]')
+sourceName=$(ls $sourceFolder/*.cpp | cut -d "/" -f 2 | cut -d "." -f 1)
+echo $sourceName
+targetName=$targetFolder
+#sourceFolder=$(echo $sourceClass | tr '[:upper:]' '[:lower:]')
+
+# Check targetFolder does not exists
+if [ -d $targetFolder ]; then
+	echo " Error: Target folder already exists: " $targetFolder 
+    echo " Exiting..."
+    exit -1
+else 
+	echo " Target folder: " $targetFolder 
+fi 
+
+#read -p "--Enter a name for the new class (example: AnimateVertices): " className
+#read -p "--Enter an existing plugin to copy from (default: Template): " className
+echo " Creating folder: " $targetFolder
+mkdir $targetFolder
+cat $sourceFolder/*.cpp  | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.cpp
+cat $sourceFolder/*.h    | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.h
+cat $sourceFolder/*.vert | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.vert
+cat $sourceFolder/*.geom | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.geom
+cat $sourceFolder/*.frag | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.frag
+cat $sourceFolder/*.pro  | sed s/$sourceName/$targetName/g | sed s/$sourceClass/$targetClass/g | sed s/$sourceFolder/$targetName/g >$targetFolder/$targetName.pro
+files=$(ls $targetFolder)
+echo "--Created files: " $files
+echo "--Compiling..."
+cd $targetFolder
+qmake
+make
+../../viewer/bin/viewer
+
+
+
+

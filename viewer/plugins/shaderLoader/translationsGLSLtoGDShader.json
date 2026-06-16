@@ -1,0 +1,199 @@
+{
+  "vertex": {
+    "gl_Position": "POSITION",
+    "gl_PointSize": "POINT_SIZE",
+    "gl_VertexID": "VERTEX_ID",
+    "gl_InstanceID": "INSTANCE_ID",
+
+    "vertex": "VERTEX",
+    "normal": "NORMAL",
+    "tangent": "TANGENT",
+    "binormal": "BINORMAL",
+
+    "color": "COLOR.rgb",
+    "frontColor": "COLOR",
+
+    "uv": "UV",
+    "uv2": "UV2",
+    "texCoord": "UV",
+    "texCoord2": "UV2",
+    "vtexCoord": "UV",
+
+    "projectionMatrix": "PROJECTION_MATRIX",
+    "inverseProjectionMatrix": "INV_PROJECTION_MATRIX",
+
+    "modelMatrix": "MODEL_MATRIX",
+    "inverseModelMatrix": "INV_MODEL_MATRIX",
+
+    "viewMatrix": "VIEW_MATRIX",
+    "inverseViewMatrix": "INV_VIEW_MATRIX",
+
+    "modelViewMatrix": "MODELVIEW_MATRIX",
+    "inverseModelViewMatrix": "INV_MODELVIEW_MATRIX",
+
+    "modelViewProjectionMatrix": "PROJECTION_MATRIX * MODELVIEW_MATRIX",
+
+    "normalMatrix": "transpose(inverse(mat3(MODELVIEW_MATRIX)))",
+
+    "cameraPosition": "CAMERA_POSITION_WORLD",
+    "cameraDirection": "VIEW",
+
+    "viewportSize": "VIEWPORT_SIZE",
+    "screenUV": "SCREEN_UV",
+
+    "time": "TIME",
+    "delta": "DELTA",
+
+    "instanceCustom": "INSTANCE_CUSTOM",
+
+    "worldPosition": "(MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz",
+    "viewPosition": "(MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz"
+  },
+
+  "fragment": {
+    "gl_FragColor": "ALBEDO",
+    "fragColor": "ALBEDO",
+
+    "gl_FragDepth": "DEPTH",
+    "gl_FragCoord": "FRAGCOORD",
+
+    "gl_FrontFacing": "FRONT_FACING",
+    "gl_PointCoord": "POINT_COORD",
+
+    "frontColor": "COLOR",
+    "color": "COLOR",
+
+    "uv": "UV",
+    "uv2": "UV2",
+    "texCoord": "UV",
+    "texCoord2": "UV2",
+    "vtexCoord": "UV",
+
+    "normal": "NORMAL",
+    "view": "VIEW",
+
+    "screenUV": "SCREEN_UV",
+
+    "cameraPosition": "CAMERA_POSITION_WORLD",
+
+    "time": "TIME",
+    "delta": "DELTA",
+
+    "diffuseLight": "DIFFUSE_LIGHT",
+    "specularLight": "SPECULAR_LIGHT",
+
+    "roughness": "ROUGHNESS",
+    "metallic": "METALLIC",
+
+    "emission": "EMISSION",
+
+    "alpha": "ALPHA",
+
+    "ao": "AO",
+
+    "rim": "RIM",
+    "rimTint": "RIM_TINT",
+
+    "clearcoat": "CLEARCOAT",
+    "clearcoatGloss": "CLEARCOAT_GLOSS",
+
+    "anisotropy": "ANISOTROPY",
+    "anisotropyFlow": "ANISOTROPY_FLOW",
+
+    "sssStrength": "SSS_STRENGTH",
+
+    "backlight": "BACKLIGHT"
+  },
+
+  "functions": {
+    "texture": "texture",
+    "texture2D": "texture",
+    "texture2DLod": "textureLod",
+    "texture2DProj": "textureProj",
+
+    "textureCube": "texture",
+    "textureCubeLod": "textureLod",
+
+    "shadow2D": "texture",
+    "shadow2DProj": "textureProj",
+
+    "texelFetch": "texelFetch",
+
+    "dFdx": "dFdx",
+    "dFdy": "dFdy",
+    "fwidth": "fwidth",
+
+    "mix": "mix",
+    "clamp": "clamp",
+    "smoothstep": "smoothstep",
+    "step": "step",
+
+    "fract": "fract",
+    "mod": "mod",
+
+    "min": "min",
+    "max": "max",
+
+    "abs": "abs",
+    "sign": "sign",
+
+    "floor": "floor",
+    "ceil": "ceil",
+    "round": "round",
+    "trunc": "trunc",
+
+    "sin": "sin",
+    "cos": "cos",
+    "tan": "tan",
+
+    "asin": "asin",
+    "acos": "acos",
+    "atan": "atan",
+
+    "pow": "pow",
+    "exp": "exp",
+    "log": "log",
+
+    "exp2": "exp2",
+    "log2": "log2",
+
+    "sqrt": "sqrt",
+    "inversesqrt": "inversesqrt",
+
+    "normalize": "normalize",
+    "length": "length",
+    "distance": "distance",
+
+    "dot": "dot",
+    "cross": "cross",
+
+    "reflect": "reflect",
+    "refract": "refract",
+
+    "faceforward": "faceforward",
+
+    "matrixCompMult": "matrixCompMult",
+
+    "transpose": "transpose",
+    "inverse": "inverse",
+
+    "radians": "radians",
+    "degrees": "degrees",
+
+    "isnan": "isnan",
+    "isinf": "isinf",
+
+    "lessThan": "lessThan",
+    "lessThanEqual": "lessThanEqual",
+
+    "greaterThan": "greaterThan",
+    "greaterThanEqual": "greaterThanEqual",
+
+    "equal": "equal",
+    "notEqual": "notEqual",
+
+    "any": "any",
+    "all": "all",
+    "not": "not"
+  }
+}
