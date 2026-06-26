@@ -4,6 +4,8 @@
 - [Español](#español)
 
 ---
+<a id="english"></a>
+
 ## 🇬🇧 English
 
 This project extends **GLarena**, the viewer used in the Graphics course at the FIB, by integrating **Godot** as a complementary environment for shader experimentation.
@@ -67,6 +69,7 @@ Once the process is complete, the project is automatically opened in **Godot** w
 
 
 ---
+<a id="español"></a>
 
 ## 🇪🇸 Español
 
